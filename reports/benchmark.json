@@ -1,0 +1,164 @@
+{
+  "reproducibility": {
+    "seed": 42,
+    "numpy": "2.0.2",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.6.1"
+  },
+  "data": {
+    "source": "https://archive.ics.uci.edu/dataset/2/adult",
+    "train_sha256": "5b00264637dbfec36bdeaab5676b0b309ff9eb788d63554ca0a249491c86603d",
+    "test_sha256": "a2a9044bc167a35b2361efbabec64e89d69ce82d9790d2980119aac5fd7e9c05",
+    "fit_rows": 26048,
+    "validation_rows": 6513,
+    "test_rows": 16281,
+    "features": [
+      "age",
+      "education_num",
+      "capital_gain",
+      "capital_loss",
+      "hours_per_week",
+      "workclass",
+      "marital_status",
+      "occupation",
+      "relationship",
+      "native_country"
+    ],
+    "excluded_fields": [
+      "income",
+      "target",
+      "sex",
+      "race",
+      "fnlwgt",
+      "education"
+    ]
+  },
+  "selection": {
+    "criterion": "validation log loss",
+    "candidates": [
+      {
+        "C": 0.1,
+        "validation_log_loss": 0.3177157453054749
+      },
+      {
+        "C": 1.0,
+        "validation_log_loss": 0.3180646995189743
+      },
+      {
+        "C": 10.0,
+        "validation_log_loss": 0.318375232295411
+      }
+    ],
+    "selected_C": 0.1,
+    "threshold_criterion": "validation F1",
+    "threshold": 0.33,
+    "validation_f1": 0.6961262553802009
+  },
+  "test": {
+    "n": 16281,
+    "positive_prevalence": 0.23622627602727106,
+    "threshold": 0.33,
+    "accuracy": 0.8343467845955408,
+    "precision": 0.6240552796372274,
+    "recall": 0.7514300572022881,
+    "f1": 0.681844992332193,
+    "roc_auc": 0.9037268052845153,
+    "average_precision": 0.7571381275995273,
+    "log_loss": 0.3207979005326665,
+    "brier_score": 0.10272078216729709,
+    "confusion_matrix": {
+      "tn": 10694,
+      "fp": 1741,
+      "fn": 956,
+      "tp": 2890
+    }
+  },
+  "majority_prior_baseline": {
+    "n": 16281,
+    "positive_prevalence": 0.23622627602727106,
+    "threshold": 0.33,
+    "accuracy": 0.7637737239727289,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "roc_auc": 0.5,
+    "average_precision": 0.23622627602727106,
+    "log_loss": 0.54674893598199,
+    "brier_score": 0.18044456741414897,
+    "confusion_matrix": {
+      "tn": 12435,
+      "fp": 0,
+      "fn": 3846,
+      "tp": 0
+    }
+  },
+  "subgroups": {
+    "sex": [
+      {
+        "group": "Female",
+        "n": 5421,
+        "positive_prevalence": 0.10883600811658366,
+        "selection_rate": 0.11916620549714074,
+        "true_positive_rate": 0.6559322033898305,
+        "false_positive_rate": 0.053612088594493894,
+        "precision": 0.5990712074303406
+      },
+      {
+        "group": "Male",
+        "n": 10860,
+        "positive_prevalence": 0.2998158379373849,
+        "selection_rate": 0.3669429097605893,
+        "true_positive_rate": 0.7687346437346437,
+        "false_positive_rate": 0.19489742240925828,
+        "precision": 0.6281053952321205
+      }
+    ],
+    "race": [
+      {
+        "group": "Amer-Indian-Eskimo",
+        "n": 159,
+        "positive_prevalence": 0.11949685534591195,
+        "selection_rate": 0.16352201257861634,
+        "true_positive_rate": 0.7894736842105263,
+        "false_positive_rate": 0.07857142857142857,
+        "precision": 0.5769230769230769
+      },
+      {
+        "group": "Asian-Pac-Islander",
+        "n": 480,
+        "positive_prevalence": 0.27708333333333335,
+        "selection_rate": 0.31875,
+        "true_positive_rate": 0.7443609022556391,
+        "false_positive_rate": 0.15561959654178675,
+        "precision": 0.6470588235294118
+      },
+      {
+        "group": "Black",
+        "n": 1561,
+        "positive_prevalence": 0.11467008327994875,
+        "selection_rate": 0.14157591287636132,
+        "true_positive_rate": 0.6703910614525139,
+        "false_positive_rate": 0.07308248914616498,
+        "precision": 0.5429864253393665
+      },
+      {
+        "group": "Other",
+        "n": 135,
+        "positive_prevalence": 0.18518518518518517,
+        "selection_rate": 0.15555555555555556,
+        "true_positive_rate": 0.72,
+        "false_positive_rate": 0.02727272727272727,
+        "precision": 0.8571428571428571
+      },
+      {
+        "group": "White",
+        "n": 13946,
+        "positive_prevalence": 0.2502509680195038,
+        "selection_rate": 0.301878674888857,
+        "true_positive_rate": 0.7558739255014326,
+        "false_positive_rate": 0.1503442999234889,
+        "precision": 0.626603325415677
+      }
+    ]
+  }
+}
